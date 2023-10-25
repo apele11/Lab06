@@ -1,16 +1,30 @@
-# This is a sample Python script.
+encoder = True
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def menu():
+    print("""
+Menu
+-------------
+1. Encode
+2. Decode
+3. Quit \n"""
+)
+
+def encode():
+    user_pass = input("Please enter your password to encode: ")
+    final_pass = ""
+    for dig in user_pass:
+        d = int(dig)
+        if (d + 3) > 9:
+            d = (d + 3) % 10
+        else:
+            d = d + 3
+        final_pass += str(d)
+
+    print(final_pass)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+while encoder:
+    menu()
+    choice = int(input("Please enter an option: "))
+    if choice == 1:
+        encode()
