@@ -23,7 +23,15 @@ def encode(password):
 
 
 def decoder(encoded_pass):
-    pass
+    result = ""
+    for digit in encoded_pass:
+        digit = int(digit)
+
+        new_digit = digit - 3
+        result += str(10 + new_digit if new_digit < 0 else new_digit)
+
+    print(f"The encoded password is {encoded_pass}, and the original password is {result}")
+
 
 user_pass = None
 encoded_pass = None
@@ -37,6 +45,6 @@ while encoder:
         print("Your password has been encoded and stored!")
 
     elif choice == 2:
-        pass
+        decoder(encoded_pass)
     elif choice == 3:
         break
